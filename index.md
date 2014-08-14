@@ -1,8 +1,11 @@
 # Technical Notes
 
-### Desktop Setup
+### Desktop
 
-* [Setup OS X](desktop-setup/setup-osx.md)
+* [OS X Basic Setup](osx-basic-setup.md)
+
+### Programming Infrastructure
+* [Setup pyenv](pyenv.md)
 
 ### System Admin
 * [Create Linux User](sys-admin/linux-create-user.md)
