@@ -3,6 +3,7 @@
 ### Desktop
 
 * [OS X Basic Setup](osx-basic-setup.md)
+* [OS X Tools](osx-tools.md)
 
 ### Programming Infrastructure
 * [Setup pyenv](pyenv.md)
