@@ -1,52 +1,57 @@
-### Basic pyenv
+## Managing Python with pyenv
 
-The Python equivalent of Ruby's rbenv, forked from [rbenv](https://github.com/sstephenson/rbenv).
+[pyenv](https://github.com/yyuu/pyenv) is the Python
+equivalent of [rbenv](https://github.com/sstephenson/rbenv). It's forked
+from rbenv and ruby-build, so the install functionality is baked into
+the core.
 
-See [github.com/yyuu/pyenv](https://github.com/yyuu/pyenv).
+Since the operation is nearly identical to rbenv, see [rbenv notes](rbenv.md)
+for usage details.
 
-* On OS X, install pyenv via Homebrew:
+It also has two [plugins](https://github.com/yyuu/pyenv/wiki/Plugins)&mdash;[pyenv-virtualenv](https://github.com/yyuu/pyenv-virtualenv) and [pyenv-virtualenvwrapper](https://github.com/yyuu/pyenv-virtualenvwrapper)&mdash; for managing [virtualenv](https://virtualenv.pypa.io), which manages python dependency sets.
+
+### Install
+
+On OS X, install pyenv via Homebrew:
+
 ```
 > brew install pyenv
-==> Downloading https://github.com/yyuu/pyenv/archive/v20140705.tar.gz
-Already downloaded: /Library/Caches/Homebrew/pyenv-20140705.tar.gz
-==> Caveats
-To enable shims and autocompletion add to your profile:
-  if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-To use Homebrew's directories rather than ~/.pyenv add to your profile:
-  export PYENV_ROOT=/usr/local/opt/pyenv
-==> Summary
-/usr/local/Cellar/pyenv/20140705: 287 files, 2.6M, built in 2 seconds
+...
 ```
 
-* Install shims with ```pyi``` (an alias for ```'eval "$(pyenv init -)"'```).
-* Identify latest and greatest, or an alternative, Python  with ```pyenv install -l```.
-* Install a Python with ```pyenv install```:
-```
-> pyenv install 3.4.1
-Downloading Python-3.4.1.tgz...
--> http://yyuu.github.io/pythons/8d007e3ef80b128a292be101201e75dec5480e5632e994771e7c231d17720b66
-Installing Python-3.4.1...
-Installed Python-3.4.1 to /Users/vino/.pyenv/versions/3.4.1
-```
+Note you now have the equivalent of rbenv and ruby-build.
 
-* Switch to the newly install version with ```pyenv global```.
-* Install packages with pip:
-```
-> pip install beautifulsoup4
-Downloading/unpacking beautifulsoup4
-  Downloading beautifulsoup4-4.3.2.tar.gz (143kB): 143kB downloaded
-  Running setup.py (path:/private/var/folders/lj/j_1_jjf52pq4j1490x7478700000gn/T/pip_build_vino/beautifulsoup4/setup.py) egg_info for package beautifulsoup4
+You have to setup your shell environment. This is a direct paralell to
+rbenv; see [rbenv notes](rbenv.md) for details.
 
-Installing collected packages: beautifulsoup4
-  Running setup.py install for beautifulsoup4
-    Skipping implicit fixer: buffer
-    Skipping implicit fixer: idioms
-    Skipping implicit fixer: set_literal
-    Skipping implicit fixer: ws_comma
+### Usage
 
-Successfully installed beautifulsoup4
-Cleaning up...
-```
+Refer to [rbenv notes](rbenv.md) for details.
 
-* Use ```#!/usr/bin/env``` to write python scripts.
+### pip
+
+pip appears to be the preferred package manager for Python. I can't tell
+whether it handles dependencies.
+
+pip is installed by default in Python 2.7.9 and 3.4 and later,
+[according to wikipedia](http://en.wikipedia.org/wiki/Pip_\(package_manager\)). Before
+that easy_install appears to have been the alternative in (some) prior
+versions? And you can use easy_install to install pip if you're on an
+old version ... that has easy_install.
+
+There is also setuptools, which seem to be installed by default either
+way, and seems to relate to easy_install ... somehow.
+
+OS X 10.10 ships with Python 2.7.6, so pip is not installed by
+default. But if you install an appropriate Python with pyenv, you will
+have pip. Which is apparently good.
+
+None of this is entirely clear .... It's a mess. I would love to make
+this section more thorough and accurate, but that's all the time I have
+at the moment. Please educate me where I've gone astray.
+
+### virtualenv
+
+Haven't played with this. Seems useful. And overly
+complicated&mdash;although possibly only in regards to there being two
+pyenv plugins for working with it.
